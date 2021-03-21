@@ -21,6 +21,7 @@ import { AboutComponent } from './about/about.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 import { LoginComponent } from './login/login.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -71,6 +72,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     
   ],
   providers: [DishService,PromotionService,LeaderService,
+    ProcessHTTPMsgService,
     {provide: 'baseURL', useValue: baseURL}],
   entryComponents: [
     LoginComponent],

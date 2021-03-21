@@ -15,8 +15,11 @@ import { LeaderService } from '../services/leader.service';
 export class HomeComponent implements OnInit {
 
   dish!: Dish;
+  dishErrMess!: string;
   promotion!: Promotion;
+  promotionErrMess!: string;
   leader!: Leader;
+  leaderErrMess!: string;
 
   constructor(private dishservice: DishService,
     private promotionservice: PromotionService,
@@ -25,11 +28,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.dishservice.getFeaturedDish()
-    .subscribe(dish => this.dish = dish);
+    .subscribe(dish => this.dish = dish,
+      dishErrMess => this.dishErrMess = <any>dishErrMess);
     this.promotionservice.getFeaturedPromotion()
-    .subscribe(promotion => this.promotion = promotion);
+    .subscribe(promotion => this.promotion = promotion,
+      promotionErrMess => this.promotionErrMess = <any>promotionErrMess);
     this.leaderservice.getFeaturedLeader()
-    .subscribe(leader => this.leader = leader);
+    .subscribe(leader => this.leader = leader,
+      leaderErrMess => this.leaderErrMess = <any>leaderErrMess);
   }
 
 }
